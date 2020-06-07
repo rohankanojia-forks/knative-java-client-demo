@@ -1,0 +1,12 @@
+apiVersion: serving.knative.dev/v1
+kind: Route
+metadata:
+  generation: 1
+  name: greeter
+spec:
+  generation: 1
+  traffic:
+    - configurationName: greeter
+      percent: 100
+status:
+  domain: greeter.myproject.example.com
