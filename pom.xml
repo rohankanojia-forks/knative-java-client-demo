@@ -11,7 +11,7 @@
   <properties>
     <maven.compiler.source>1.8</maven.compiler.source>
     <maven.compiler.target>1.8</maven.compiler.target>
-    <knative-client.version>4.10.2</knative-client.version>
+    <knative-client.version>4.10.3</knative-client.version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
 
