@@ -25,7 +25,7 @@ public class ServiceBuilderDemo {
                     .build();
 
             // Apply it onto Kubernetes Server
-            kn.services().inNamespace("default").createOrReplace(service);
+            kn.services().inNamespace("default").resource(service).createOrReplace();
 
         }
     }

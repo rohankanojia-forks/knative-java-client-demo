@@ -2,8 +2,8 @@ package io.fabric8.knative.client.demo;
 
 import io.fabric8.knative.client.DefaultKnativeClient;
 import io.fabric8.knative.client.KnativeClient;
-import io.fabric8.knative.sources.v1beta1.SinkBinding;
-import io.fabric8.knative.sources.v1beta1.SinkBindingBuilder;
+import io.fabric8.knative.sources.v1.SinkBinding;
+import io.fabric8.knative.sources.v1.SinkBindingBuilder;
 import io.fabric8.kubernetes.api.model.LabelSelectorBuilder;
 
 public class SinkBindingTest {
@@ -26,7 +26,7 @@ public class SinkBindingTest {
                     .endSink()
                     .endSpec()
                     .build();
-            client.sinkBindings().inNamespace("default").createOrReplace(sinkBinding);
+            client.sinkBindings().inNamespace("default").resource(sinkBinding).createOrReplace();
         }
     }
 }

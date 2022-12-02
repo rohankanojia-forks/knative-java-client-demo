@@ -3,8 +3,8 @@ package io.fabric8.knative.client.demo;
 
 import io.fabric8.knative.client.DefaultKnativeClient;
 import io.fabric8.knative.client.KnativeClient;
-import io.fabric8.knative.sources.v1beta1.ApiServerSource;
-import io.fabric8.knative.sources.v1beta1.ApiServerSourceBuilder;
+import io.fabric8.knative.sources.v1.ApiServerSource;
+import io.fabric8.knative.sources.v1.ApiServerSourceBuilder;
 
 public class ApiServerSourceTest {
     public static void main(String[] args) {

@@ -3,6 +3,7 @@ package io.fabric8.knative.client.demo;
 import io.fabric8.knative.client.DefaultKnativeClient;
 import io.fabric8.knative.client.KnativeClient;
 import io.fabric8.knative.serving.v1.Route;
+import io.fabric8.knative.serving.v1.RouteBuilder;
 import io.fabric8.kubernetes.api.model.DeletionPropagation;
 
 import java.io.InputStream;
@@ -18,7 +19,7 @@ public class KnativeRouteCrudDemo {
             Route route = kn.routes().load(routeYamlIn).get();
 
             // Create Route object into Kubernetes
-            kn.routes().inNamespace(NAMESPACE).createOrReplace(route);
+            kn.routes().inNamespace(NAMESPACE).resource(route).createOrReplace();
 
             // Get Route object from APIServer
             String routeName = route.getMetadata().getName();
@@ -27,11 +28,11 @@ public class KnativeRouteCrudDemo {
                     .get();
 
             // Edit Route object, add some dummy label
-            kn.routes().inNamespace(NAMESPACE).withName(routeName).edit()
-                    .editOrNewMetadata()
-                    .addToAnnotations("context", "demo")
-                    .endMetadata()
-                    .done();
+            kn.routes().inNamespace(NAMESPACE).withName(routeName).edit(r -> new RouteBuilder(r)
+                .editOrNewMetadata()
+                .addToAnnotations("context", "demo")
+                .endMetadata()
+                .build());
 
             // Delete Route object
             kn.routes().inNamespace(NAMESPACE).withName(routeName).withPropagationPolicy(DeletionPropagation.FOREGROUND).delete();

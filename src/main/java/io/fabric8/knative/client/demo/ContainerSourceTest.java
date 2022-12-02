@@ -3,8 +3,8 @@ package io.fabric8.knative.client.demo;
 
 import io.fabric8.knative.client.DefaultKnativeClient;
 import io.fabric8.knative.client.KnativeClient;
-import io.fabric8.knative.sources.v1beta1.ContainerSource;
-import io.fabric8.knative.sources.v1beta1.ContainerSourceBuilder;
+import io.fabric8.knative.sources.v1.ContainerSource;
+import io.fabric8.knative.sources.v1.ContainerSourceBuilder;
 import io.fabric8.kubernetes.api.model.PodTemplateSpecBuilder;
 
 public class ContainerSourceTest {
